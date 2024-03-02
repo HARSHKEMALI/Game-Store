@@ -160,12 +160,12 @@
 
             function displayGames() {
                 var games = [
-                    { title: "GTA 5", description: "A story game with stunning graphics and immersive gameplay", price: "$15.99", image: "game1.jpg" },
-                    { title: "Days Gone", description: "A survival horror zombie game with rich story and diverse character all time favorite", price: "$29.99", image: "game2.jpg" },
-                    { title: "PUBG", description: "A battle royale game with realistic physics and competitive gameplay", price: "$9.99", image: "game3.jpg" },
-                    { title: "Watch Dogs", description: "An action-adventure game set in a near-future open world environment", price: "$39.99", image: "game4.jpg" },
-                    { title: "Spider Man", description: "An action-adventure game based on the Marvel Comics character Spider-Man", price: "$19.99", image: "game5.jpg" },
-                    { title: "Star Wars", description: "An epic space-opera media franchise created by George Lucas", price: "$25.99", image: "game6.jpg" }
+                    { title: "GTA 5", description: "A story game with stunning graphics and immersive gameplay", price: "15.99", image: "game1.jpg" },
+                    { title: "Days Gone", description: "A survival horror zombie game with rich story and diverse character all time favorite", price: "29.99", image: "game2.jpg" },
+                    { title: "PUBG", description: "A battle royale game with realistic physics and competitive gameplay", price: "9.99", image: "game3.jpg" },
+                    { title: "Watch Dogs", description: "An action-adventure game set in a near-future open world environment", price: "39.99", image: "game4.jpg" },
+                    { title: "Spider Man", description: "An action-adventure game based on the Marvel Comics character Spider-Man", price: "19.99", image: "game5.jpg" },
+                    { title: "Star Wars", description: "An epic space-opera media franchise created by George Lucas", price: "25.99", image: "game6.jpg" }
                 ];
 
                 var gamesList = $("#games-list");
@@ -178,7 +178,7 @@
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + game.title + '</h5>' +
                         '<p class="card-text">' + game.description + '</p>' +
-                        '<p class="card-price">' + game.price + '</p>' +
+                        '<p class="card-price">$' + parseFloat(game.price).toFixed(2) + '</p>' +
                         '<button class="card-button" onclick="addToCart(\'' + game.title + '\', \'' + game.description + '\', \'' + game.price + '\')"><span class="material-icons">shopping_cart</span> Add to Cart</button>' +
                         '</div>' +
                         '</div>' +

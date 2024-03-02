@@ -110,7 +110,7 @@
     <div class="container">
         <h2>Your Cart</h2>
         <div id="cart-items"></div>
-        <div class="cart-total">Total: <span id="cart-total">0.00</span></div>
+        <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
         <button class="btn-checkout">Proceed to Checkout</button>
     </div>
 
@@ -145,7 +145,7 @@
 
                 var itemText = document.createElement('span');
                 itemText.classList.add('cart-item-text');
-                itemText.textContent = item.title + ' - ' + item.price;
+                itemText.textContent = item.title + ' - $' + item.price; // Add dollar symbol here
 
                 var removeButton = document.createElement('button');
                 removeButton.classList.add('remove-button'); // Add the remove-button class
@@ -181,6 +181,15 @@
         window.addEventListener('beforeunload', function () {
             localStorage.setItem('cart', JSON.stringify(cartItems));
         });
+
+        // Function to handle the click event for the "Proceed to Checkout" button
+        function handleCheckout() {
+            // Redirect to the payment page
+            window.location.href = 'payment.html'; // Replace 'payment.html' with the actual path to your payment page
+        }
+
+        // Add event listener to the "Proceed to Checkout" button
+        document.querySelector('.btn-checkout').addEventListener('click', handleCheckout);
     </script>
 </body>
 
