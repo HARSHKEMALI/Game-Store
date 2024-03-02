@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store Template</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("bg.png");
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .catalog {
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .catalog h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px; /* Adjusted border-radius for slight curvature */
+            transition: transform 0.3s ease;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(9px);
+            margin-bottom: 20px; /* Added margin bottom for spacing */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px; /* Adjusted border-radius for slight curvature */
+        }
+
+        .card-body {
+            background-color: transparent;
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: white; /* Changed color to improve visibility */
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: lightgray; /* Changed color to improve visibility */
+        }
+
+        .card-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        .card-button {
+            background-color: #ff9900;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .row {
+            margin-top: 20px; /* Adjusted margin for spacing */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="catalog">
+        <div class="container">
+            <h2>Featured Games</h2>
+            <div class="row" id="games-list">
+                <!-- Game cards will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            displayGames();
+
+            function displayGames() {
+                // Example games data
+                var games = [
+                    { title: "GTA 5", description: "A story game with stunning graphics and immersive gameplay", price: "$19.99", image: "game1.jpg" },
+                    { title: "Days Gone", description: "A survival horror zombie game with rich story and diverse character all time favorite", price: "$29.99", image: "game2.jpg" },
+                    { title: "PUBG", description: "A battle royale game with realistic physics and compitative gameplay", price: "$39.99", image: "game3.jpg" },
+                    { title: "Watch Dogs", description: "An action-adventure game set in a near-future open world environment", price: "$49.99", image: "game4.jpg" },
+                    { title: "Spider Man", description: "An action-adventure game based on the Marvel Comics character Spider-Man", price: "$59.99", image: "game5.jpg" },
+                    { title: "Star Wars", description: "An epic space-opera media franchise created by George Lucas", price: "$69.99", image: "game6.jpg" }
+                ];
+
+                var gamesList = $("#games-list");
+                gamesList.empty();
+
+                $.each(games, function (index, game) {
+                    var card = '<div class="col-lg-4 col-md-6 col-sm-12">' +
+                        '<div class="card">' +
+                        '<img src="' + game.image + '" class="card-img-top" alt="' + game.title + '">' +
+                        '<div class="card-body">' +
+                        '<h5 class="card-title">' + game.title + '</h5>' +
+                        '<p class="card-text">' + game.description + '</p>' +
+                        '<p class="card-price">' + game.price + '</p>' +
+                        '<button class="card-button">Buy Now</button>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+                    gamesList.append(card);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
